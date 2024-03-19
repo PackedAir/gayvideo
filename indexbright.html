@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>我的世界启动器</title>
+  <link rel="stylesheet" href="stylebright.css">
+  <script>
+    function showOptions(option) {
+      var usernameInput = document.querySelector('.username-input');
+      var actionButtons = document.querySelector('.action-buttons');
+      var roomList = document.querySelector('.room-list');
+      var serverList = document.querySelector('.server-list');
+
+      if (option === 'single') {
+        usernameInput.style.display = 'block';
+        actionButtons.style.display = 'block';
+        roomList.style.display = 'none';
+        serverList.style.display = 'none';
+      } else if (option === 'multiplayer') {
+        usernameInput.style.display = 'none';
+        actionButtons.style.display = 'none';
+        roomList.style.display = 'block';
+        serverList.style.display = 'none';
+      } else if (option === 'server') {
+        usernameInput.style.display = 'none';
+        actionButtons.style.display = 'none';
+        roomList.style.display = 'none';
+        serverList.style.display = 'block';
+      }
+      
+      return false; // 阻止默认的页面跳转行为
+    }
+  </script>
+</head>
+<body>
+  <div class="container">
+    <div class="sidebar">
+      <ul class="nav-list">
+        <li><a href="#" onclick="return showOptions('single')">单人游戏</a></li>
+        <li><a href="#" onclick="return showOptions('multiplayer')">多人游戏</a></li>
+        <li><a href="#" onclick="return showOptions('server')">服务器</a></li>
+      </ul>
+    </div>
+    <div class="content">
+      <div class="username-input" style="display: none;">
+        <label for="username">用户名：</label>
+        <input type="text" id="username" name="username">
+      </div>
+      <div class="action-buttons" style="display: none;">
+        <button onclick="startGame()">启动游戏</button>
+      </div>
+      <ul class="room-list" style="display: none;">
+        <!-- 联机大厅房间列表 -->
+        <li><a href="#">32K批发服 <span class="room-owner">房主:金星专家</span></a></li>
+        <li><a href="#">高仿HYT(没有反作弊) <span class="room-owner">房主:火星专家</span></a></li>
+        <li><a href="#">HVH <span class="room-owner">房主:水星专家</span></a></li>
+      </ul>
+      <ul class="server-list" style="display: none;">
+        <!-- 服务器列表 -->
+        <li><a href="#">花雨庭</a></li>
+        <li><a href="#">布吉岛</a></li>
+      </ul>
+    </div>
+  </div>
+  <script>
+    function startGame() {
+      var username = document.getElementById('username').value;
+      // 在这里添加启动游戏的逻辑，使用获取到的用户名进行处理
+      alert("游戏启动成功(最新版本1.20.4)" + " 用户名：" + username);
+    }
+  </script>
+</body>
+</html>
